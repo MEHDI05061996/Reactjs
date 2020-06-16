@@ -13,6 +13,8 @@ import React, { Component } from 'react'
         return (
             <div>
                 <input value={this.state.value} onChange={this.setvalue}/>
+          <hr></hr>
+                <textarea value={this.state.value} onChange={this.setvalue}></textarea>
             </div>
         )
     }
