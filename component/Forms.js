@@ -5,7 +5,8 @@ import React, { Component } from 'react'
     value : "Deafult",
     valuetextarea : "textarea",
     value1:"2",
-    checked:true
+    checked:true,
+    radiovalue:"2"
     }
     // Forms - Controlled components
     setvalue=(event)=>{
@@ -31,6 +32,12 @@ import React, { Component } from 'react'
             checked:event.target.checked
         });
     }
+    //Forms - Radio 
+    setradiovalue=(event)=>{
+        this.setState({
+            radiovalue:event.target.value
+        });
+    }
     render() {
         return (
             <div>
@@ -43,7 +50,12 @@ import React, { Component } from 'react'
                     <option value="2">Two</option>
                     <option value="3">three</option>
                 </select><hr></hr>
-                Checkbox<input type="checkbox" checked={this.state.checked} onChange={this.setchecked}/>
+                Checkbox<input type="checkbox" checked={this.state.checked} onChange={this.setchecked}/><hr></hr>
+
+                <div onChange={this.setradiovalue}>
+                <input type="radio" value="1"   checked={this.state.radiovalue == "1"}/>One
+                <input type="radio" value="2"   checked={this.state.radiovalue == "2"}/>Two
+                     </div>
             </div>
         )
     }
