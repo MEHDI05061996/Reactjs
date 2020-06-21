@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-
- class Forms extends Component {
+   class Forms extends Component {
     state={
     value : "Deafult",
     valuetextarea : "textarea",
