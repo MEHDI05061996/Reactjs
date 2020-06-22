@@ -7,9 +7,9 @@ import LifeCycle from './component/LifeCycle';
 import Condbetter from './component/cond&loop/Condbetter';
 import Loop from './component/cond&loop/loop'; 
 import Todolist_app from './component/Todolist app';
-import Forms from './component/Forms';
-import ForbyOneMethod from './component/FormbyOneMethod';
-import Formik from './component/Formik';
+import Forms from './component/Forms/Forms';
+import ForbyOneMethod from './component/Forms/FormbyOneMethod';
+import Formik from './component/Formik/Formik';
 
 
 
