@@ -34,6 +34,14 @@ class Formik1 extends Component {
       <Field name="category" type="radio" value="2" /> 2<br />
       <ErrorMessage name="category" /><br />
 
+      <label>facebook</label><br />
+      <Field name="social.facebook" /><br />
+      <ErrorMessage name="social.facebook" /><br />
+
+      <label>Twitter</label><br />
+      <Field name="social.Twitter" /><br />
+      <ErrorMessage name="social.Twitter" /><br />
+
       <button type="submit">Send</button>
     </form>
   }
@@ -44,16 +52,30 @@ class Formik1 extends Component {
       type: Yup.string().required(),
       email: Yup.string().required(),
       category: Yup.string().required(),
+      social: Yup.object().shape({
+        facebook: Yup.string().required('facebook is a required field'),
+        Twitter: Yup.string().required('twitter is a required field'),
+      }),
     });
 
     return schema;
   }
 
+
   render() {
     return (
       <div>
         <Formik 
-          initialValues={{name: "bashir", email: "", type: "",active: false,category: ""}}
+          initialValues={{name: "", 
+          email: "", 
+          type: "",
+          active: false,
+          category: "",
+          social:{
+            facebook:"",
+            Twitter:"",
+          }
+        }}
           onSubmit={this.onSubmit}
           render={this.form}
           validationSchema={this.schema()}
