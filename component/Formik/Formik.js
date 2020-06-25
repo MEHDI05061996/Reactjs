@@ -47,11 +47,13 @@ class Formik1 extends Component {
   }
 
   schema = ()=>{
+    //Fromik - Validation & ErrorMessage Component
     const schema = Yup.object().shape({
       name: Yup.string().required(),
       type: Yup.string().required(),
       email: Yup.string().required(),
       category: Yup.string().required(),
+      //Formik - Nested Objects//
       social: Yup.object().shape({
         facebook: Yup.string().required('facebook is a required field'),
         Twitter: Yup.string().required('twitter is a required field'),
@@ -71,6 +73,8 @@ class Formik1 extends Component {
           type: "",
           active: false,
           category: "",
+          
+          /* Formik - Nested Objects*/
           social:{
             facebook:"",
             Twitter:"",
