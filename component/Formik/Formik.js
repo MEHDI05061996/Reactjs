@@ -107,7 +107,6 @@ class Formik1 extends Component {
           render={this.form}
           validationSchema={this.schema()}
           />
-          <Field />
       </div>
     );
   }
