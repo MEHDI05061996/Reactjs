@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import {Formik, Field ,ErrorMessage} from 'formik';
+import {Formik , Field, ErrorMessage, FieldArray} from "formik";
 import * as Yup from "yup"
 
 class Formik1 extends Component {
   onSubmit = (values) => {
     console.log(values);
+    
+    
   }
 
   form = (props) => {
@@ -42,6 +44,23 @@ class Formik1 extends Component {
       <Field name="social.Twitter" /><br />
       <ErrorMessage name="social.Twitter" /><br />
 
+      {/*Formik - Array of strings*/}
+      <FieldArray 
+        name="friend"
+        render={ arrayHelper => (
+          <div>
+            {props.values.friend.map((item, index)=>(
+              <div key={index}>
+                <Field name={`friend.${index}`} />
+                <button type="button" onClick={()=>arrayHelper.remove(index)}>-</button>
+                <ErrorMessage name={`friend.${index}`} /><br />
+            </div>
+          ))}
+          <button type="button" onClick={()=>arrayHelper.push("")}>+</button>
+        </div>
+      )}    
+      />
+
       <button type="submit">Send</button>
     </form>
   }
@@ -58,6 +77,9 @@ class Formik1 extends Component {
         facebook: Yup.string().required('facebook is a required field'),
         Twitter: Yup.string().required('twitter is a required field'),
       }),
+      friend: Yup.array().of(
+        Yup.string().required('remplir le fichie'),
+      )
     });
 
     return schema;
@@ -78,12 +100,14 @@ class Formik1 extends Component {
           social:{
             facebook:"",
             Twitter:"",
-          }
+          },
+          friend:["mehdi","saad"]
         }}
           onSubmit={this.onSubmit}
           render={this.form}
           validationSchema={this.schema()}
           />
+          <Field />
       </div>
     );
   }
