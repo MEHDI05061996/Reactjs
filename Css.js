@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import classnames from 'classnames'
 import './App.css';
 
 class Css extends Component {
@@ -12,8 +13,10 @@ class Css extends Component {
       
 
       render() {
+        
         const style={color:'white', fontWeight: 'bold'};
         const style1={};
+        let classes = classnames('test', {green: 1 > 0, whiteText: 2 < 4, boldText: 8 == 8});
 
         if(this.state.active){
           style1.color = 'blue';
@@ -37,6 +40,9 @@ class Css extends Component {
         <button onClick={()=>{this.setState({active: ! this.state.active})}}>
           change active
         </button>
+        <div className={classes}>
+           Css with clasnames backages 
+        </div>
           </div>
         );
       }
